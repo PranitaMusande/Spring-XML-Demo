@@ -25,12 +25,9 @@ public class Main
     public static void main(String[] args)
     {
 
-        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("bean.xml");
-        Movie movie1= (Movie) applicationContext.getBean("movie1");
-        // Movie movie2= (Movie) applicationContext.getBean("movie2");
-
-        System.out.println(movie1.getActor());
-        //System.out.println(movie2.getActor());
+        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
+        ((ClassPathXmlApplicationContext) applicationContext).registerShutdownHook();
+        BeanLifeCycleDemo beanLifeCycleDemo=(BeanLifeCycleDemo) applicationContext.getBean("cycle");
     }
 
 }
