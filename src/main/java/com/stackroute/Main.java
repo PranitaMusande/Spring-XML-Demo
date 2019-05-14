@@ -24,20 +24,14 @@ public class Main
 {
     public static void main(String[] args)
     {
-//        XmlBeanFactory xmlBeanFactory= new XmlBeanFactory ( new ClassPathResource("bean.xml"));
-//        Movie movieFirst= (Movie)xmlBeanFactory.getBean("movie1");
 
-//        BeanDefinitionRegistry beanDefinitionRegistry= new BeanDefinitionReader("bean.xml");
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("bean.xml");
+        Movie movie1=(Movie)applicationContext.getBean("movie1");
+        System.out.println(movie1.getActor());
 
-
-        ApplicationContext applicationContext1 = new ClassPathXmlApplicationContext("bean.xml");
-        Movie movieFirst=(Movie)applicationContext1.getBean("movie1");
-
-        ApplicationContext applicationContext2 = new ClassPathXmlApplicationContext("bean.xml");
-        Movie movieSecond=(Movie)applicationContext2.getBean("movie2");
-
-
-        System.out.println(movieFirst.getActor());
-        System.out.println(movieSecond.getActor());
+        //ApplicationContext applicationContext2=new ClassPathXmlApplicationContext("bean.xml");
+        Movie movie2=(Movie)applicationContext.getBean("movie2");
+        // System.out.println(movie2.getActor());
+        System.out.println(movie2.toString());
     }
 }
