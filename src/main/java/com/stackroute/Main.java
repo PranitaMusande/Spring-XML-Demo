@@ -27,9 +27,10 @@ public class Main
 
         ApplicationContext applicationContext=new ClassPathXmlApplicationContext("bean.xml");
         Movie movie1= (Movie) applicationContext.getBean("movie1");
-        //Movie movie2= (Movie) applicationContext.getBean("movie2");
+        // Movie movie2= (Movie) applicationContext.getBean("movie2");
 
         System.out.println(movie1.getActor());
-        // System.out.println(movie2.getActor());
+        //System.out.println(movie2.getActor());
     }
+
 }
