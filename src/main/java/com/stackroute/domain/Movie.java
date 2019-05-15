@@ -1,18 +1,28 @@
 package com.stackroute.domain;
 
 import org.springframework.beans.BeansException;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class Movie
 {
 
     private String movieName;
     private String director;
+
     private Actor actor;
 
-    public Movie() { }
 
+    public Movie() { }
+    @Autowired
+    public Movie(Actor actor)
+    {
+        actor.setName("Xam");
+        this.actor=actor;
+        actor.setAge(23);
+        actor.setGender("male");
+    }
     public Movie(String movieName, String director, Actor actor1) {
         this.movieName = movieName;
         this.director = director;
