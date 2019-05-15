@@ -14,20 +14,21 @@
 
 package com.stackroute;
 
+import com.stackroute.domain.Actor;
 import com.stackroute.domain.Movie;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.core.io.ClassPathResource;
+import com.stackroute.domain.config.AppConfig;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main
 {
     public static void main(String[] args)
     {
-
-        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("bean.xml");
-        ((ClassPathXmlApplicationContext) applicationContext).registerShutdownHook();
-        BeanLifeCycleDemo beanLifeCycleDemo=(BeanLifeCycleDemo) applicationContext.getBean("cycle");
+        AnnotationConfigApplicationContext annotationConfigApplicationContext = new AnnotationConfigApplicationContext();
+        annotationConfigApplicationContext.register(AppConfig.class);
+        annotationConfigApplicationContext.refresh();
+        Movie movie=(Movie)annotationConfigApplicationContext.getBean("movie");
+        Actor actor=(Actor)annotationConfigApplicationContext.getBean("actor");
+        System.out.println(movie);
+        System.out.println(actor);
     }
-
 }

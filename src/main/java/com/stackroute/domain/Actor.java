@@ -2,17 +2,39 @@ package com.stackroute.domain;
 
 public class Actor
 {
+
     private String name;
-    private  String gender;
-    private  int age;
-
-
-    public Actor() {
+    private int age;
+    public Actor(String name, int age, String gender) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
     }
 
-    public Actor(String name, String gender, int age) {
-        this.name = name;
+
+    public String getGender() {
+        return gender;
+    }
+
+    @Override
+    public String toString() {
+        return "Actor{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                ", gender='" + gender + '\'' +
+                '}';
+    }
+
+
+    public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    private String gender;
+    public Actor(){}
+
+    public Actor(String name, int age) {
+        this.name = name;
         this.age = age;
     }
 
@@ -24,28 +46,11 @@ public class Actor
         this.name = name;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public int getAge() {
         return age;
     }
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "name='" + name + '\'' +
-                ", gender='" + gender + '\'' +
-                ", age=" + age +
-                '}';
     }
 }
